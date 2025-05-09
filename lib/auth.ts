@@ -48,7 +48,7 @@ export const auth = betterAuth({
         },
       },
       jwt: {
-        expirationTime: "10s",
+        expirationTime: "1h",
       },
     }),
     bearer(),

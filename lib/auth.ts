@@ -34,8 +34,11 @@ export const auth = betterAuth({
       onboardingDone: {
         type: "boolean",
         required: false,
-        defaultValue: false,
       },
+      theme: {
+        type: "string",
+        required: false,
+      }
     },
   },
   plugins: [

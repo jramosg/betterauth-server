@@ -66,6 +66,7 @@ export const auth = betterAuth({
     "trukun://",
     "http://localhost:8081",
     "http://localhost:3000",
+    "https://trukun.com"
   ],
   socialProviders: {
     google: {

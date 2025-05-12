@@ -90,6 +90,7 @@ export const auth = betterAuth({
         subject: "Egiaztatu zure emaila | Verifica tu email",
         html: await getVerifyEmailText({
           url,
+          // @ts-expect-error: additionalFields are not extended. look why.
           userName: user.firstName,
         }),
       });

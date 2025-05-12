@@ -23,7 +23,9 @@ export const VerifyEmail = ({ url, userName }: VerifyEmailProps) => {
   return (
     <Html lang="eu">
       <Head />
-      <Preview>Egiaztatu zure emaila / Verifica tu correo</Preview>
+      <Preview>
+        {`${userName}: Egiaztatu zure emaila / Verifica tu correo`}
+      </Preview>
       <Body style={{ backgroundColor: "#f9f9f9", fontFamily: "Arial" }}>
         <Container
           style={{

@@ -38,7 +38,7 @@ export const auth = betterAuth({
       theme: {
         type: "string",
         required: false,
-      }
+      },
     },
   },
   plugins: [
@@ -67,7 +67,7 @@ export const auth = betterAuth({
     "http://localhost:8081",
     "http://localhost:3000",
     "https://trukun.com",
-    "https://www.trukun.com"
+    "https://www.trukun.com",
   ],
   socialProviders: {
     google: {
@@ -88,7 +88,10 @@ export const auth = betterAuth({
       await sendEmail({
         to: user.email,
         subject: "Egiaztatu zure emaila | Verifica tu email",
-        html: await getVerifyEmailText({ url, userName: user.name }),
+        html: await getVerifyEmailText({
+          url,
+          userName: user.firstName,
+        }),
       });
     },
   },

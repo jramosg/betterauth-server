@@ -4,6 +4,7 @@ import { Pool } from "pg";
 import { expo } from "@better-auth/expo";
 import { sendEmail } from "@/lib/email";
 import { getVerifyEmailText } from "@/components/VerifyEmail";
+import { getResetPasswordEmailText } from "@/components/ResetPasswordEmail";
 
 export const auth = betterAuth({
   database: new Pool({
@@ -65,6 +66,18 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,
+    sendResetPassword: async ({ user, url }) => {
+      await sendEmail({
+        to: user.email,
+        subject: "Eguneratu zure pasahitza | Actualiza tu contraseña",
+        text: `Click the link to reset your password: ${url}`,
+        html: await getResetPasswordEmailText({
+          url,
+          // @ts-expect-error: additionalFields are not extended. look why.
+          userName: user.firstName,
+        }),
+      });
+    },
   },
   trustedOrigins: [
     "trukun://",

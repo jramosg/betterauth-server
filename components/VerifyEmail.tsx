@@ -5,12 +5,13 @@ import {
   Body,
   Container,
   Section,
-  Img,
   Text,
   Button,
 } from "@react-email/components";
 import * as React from "react";
 import { render, pretty } from "@react-email/render";
+import EmailFooter from "./EmailFooter";
+import { EmailLogo } from "./EmailLogo";
 
 interface VerifyEmailProps {
   url: string;
@@ -36,15 +37,7 @@ export const VerifyEmail = ({ url, userName }: VerifyEmailProps) => {
             margin: "40px auto",
           }}
         >
-          <Section style={{ textAlign: "center", marginBottom: 20 }}>
-            <Img
-              src="https://www.trukun.com/images/UdalaCompleteColorPrimary.png"
-              alt="Trukun logo"
-              width={343.12}
-              height={100}
-              style={{ margin: "0 auto" }}
-            />
-          </Section>
+          <EmailLogo />
 
           {/* Basque section */}
           <Section>
@@ -101,18 +94,12 @@ export const VerifyEmail = ({ url, userName }: VerifyEmailProps) => {
             </Button>
           </Section>
 
-          <Section style={{ textAlign: "center", marginTop: 40 }}>
-            <Text style={{ fontSize: 12, color: "#aaa" }}>
-              Trukun © 2025 — Mezu hau automatikoki sortu da. Ez erantzun.
-            </Text>
-          </Section>
+          <EmailFooter />
         </Container>
       </Body>
     </Html>
   );
 };
-
-export default VerifyEmail;
 
 export async function getVerifyEmailText(props: VerifyEmailProps) {
   return await pretty(await render(<VerifyEmail {...props} />));

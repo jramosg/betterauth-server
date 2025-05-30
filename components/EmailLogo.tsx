@@ -5,7 +5,7 @@ import * as React from "react";
 export const EmailLogo = () => (
   <Section style={{ textAlign: "center", marginBottom: 20 }}>
     <Img
-      src="https://www.trukun.com/images/UdalaCompleteColorPrimary.png"
+      src="https://www.trukun.com/images/LogoAteak.png"
       alt="Trukun logo"
       width={343.12}
       height={100}
